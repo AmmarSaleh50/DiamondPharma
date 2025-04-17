@@ -77,6 +77,61 @@ namespace DiamondPharma.Areas.Pharmacy.Controllers
             return View(cartView);
         }
 
+        // POST: /Pharmacy/Pharmacy/AddToCart
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult AddToCart(int medicineId, int quantity)
+        {
+            var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart") ?? new List<CartItem>();
+            var existing = cart.FirstOrDefault(c => c.MedicineId == medicineId);
+            if (existing != null)
+            {
+                existing.Quantity += quantity;
+            }
+            else
+            {
+                cart.Add(new CartItem { MedicineId = medicineId, Quantity = quantity });
+            }
+            HttpContext.Session.SetObjectAsJson("Cart", cart);
+
+            // Show a success message after adding to cart
+            TempData["CartSuccess"] = "Item added to cart!";
+            return RedirectToAction("Index");
+        }
+
+        // POST: /Pharmacy/Pharmacy/UpdateCart
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult UpdateCart(List<int> Quantities, int? removeIndex)
+        {
+            var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart") ?? new List<CartItem>();
+            if (removeIndex.HasValue && removeIndex.Value >= 0 && removeIndex.Value < cart.Count)
+            {
+                cart.RemoveAt(removeIndex.Value);
+                TempData["CartSuccess"] = "Item removed from cart.";
+            }
+            else if (Quantities != null && Quantities.Count == cart.Count)
+            {
+                for (int i = 0; i < cart.Count; i++)
+                {
+                    cart[i].Quantity = Quantities[i] > 0 ? Quantities[i] : 1;
+                }
+                TempData["CartSuccess"] = "Cart updated.";
+            }
+            HttpContext.Session.SetObjectAsJson("Cart", cart);
+            // If AJAX, return partial view
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                var medicines = _context.CatalogMedicines.ToList();
+                var cartView = cart.Select(c => new DiamondPharma.Models.CartViewModel {
+                    Medicine = medicines.FirstOrDefault(m => m.Id == c.MedicineId),
+                    Quantity = c.Quantity
+                }).ToList();
+                return PartialView("_CartTablePartial", cartView);
+            }
+            return RedirectToAction("Cart");
+        }
+
         private async Task<Models.Pharmacy?> GetCurrentPharmacyAsync()
         {
             return await _context.Pharmacies

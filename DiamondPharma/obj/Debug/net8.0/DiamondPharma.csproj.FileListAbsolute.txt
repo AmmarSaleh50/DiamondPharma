@@ -628,3 +628,4 @@ C:\Users\Ammar\Desktop\DiamondPharma\DiamondPharma\obj\Debug\net8.0\refint\Diamo
 C:\Users\Ammar\Desktop\DiamondPharma\DiamondPharma\obj\Debug\net8.0\DiamondPharma.pdb
 C:\Users\Ammar\Desktop\DiamondPharma\DiamondPharma\obj\Debug\net8.0\DiamondPharma.genruntimeconfig.cache
 C:\Users\Ammar\Desktop\DiamondPharma\DiamondPharma\obj\Debug\net8.0\ref\DiamondPharma.dll
+C:\Users\Ammar\Desktop\DiamondPharma\DiamondPharma\obj\Debug\net8.0\DiamondPharma.sourcelink.json

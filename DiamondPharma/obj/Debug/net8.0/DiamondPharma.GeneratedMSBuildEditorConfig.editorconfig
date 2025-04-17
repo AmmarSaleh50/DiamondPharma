@@ -110,6 +110,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUGhhcm1hY3lcVmlld3NcUGhhcm1hY3lcUHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Ammar/Desktop/DiamondPharma/DiamondPharma/Areas/Pharmacy/Views/Pharmacy/_CartTablePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUGhhcm1hY3lcVmlld3NcUGhhcm1hY3lcX0NhcnRUYWJsZVBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Ammar/Desktop/DiamondPharma/DiamondPharma/Areas/Pharmacy/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUGhhcm1hY3lcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

@@ -3,7 +3,38 @@
     ViewData["Title"] = "Order Medicines";
 }
 
-<h2>Order Medicines</h2>
+@if (TempData["CartSuccess"] != null)
+{
+    <div aria-live="polite" aria-atomic="true" class="position-fixed bottom-0 end-0 p-3" style="z-index: 1080; min-width: 300px;">
+        <div class="toast align-items-center text-bg-success border-0 show" role="alert" aria-live="assertive" aria-atomic="true" id="cartToast">
+            <div class="d-flex">
+                <div class="toast-body">
+                    @TempData["CartSuccess"]
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                var toastEl = document.getElementById('cartToast');
+                if (toastEl) {
+                    console.log('Toast found and will show!');
+                    var toast = new bootstrap.Toast(toastEl, { delay: 2500 });
+                    toast.show();
+                } else {
+                    console.log('Toast NOT found');
+                }
+            }, 100);
+        });
+    </script>
+}
+
+<!-- Hero Banner -->
+<div class="hero">
+    <h1 style="font-size:2.8rem;font-weight:800;letter-spacing:1px;">Welcome to DiamondPharma</h1>
+</div>
 
 @if (!Model.Any())
 {
@@ -11,34 +42,38 @@
 }
 else
 {
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Stock</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-        @foreach (var med in Model)
-        {
-            <tr>
-                <td>@med.Name</td>
-                <td>@med.Description</td>
-                <td>@med.Price.ToString("C")</td>
-                <td>@med.Stock</td>
-                <td>
-                    <form asp-area="Pharmacy" asp-controller="Pharmacy" asp-action="AddToCart" method="post" class="form-inline">
-                        <input type="hidden" name="medicineId" value="@med.Id" />
-                        <input type="number" name="quantity" value="1" min="1" max="@med.Stock" class="form-control" style="width: 70px; display: inline;" />
-                        <button type="submit" class="btn btn-primary">Add to Cart</button>
-                    </form>
-                </td>
-            </tr>
-        }
-        </tbody>
-    </table>
+    <div class="row">
+    @foreach (var med in Model)
+    {
+        <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="card pharma-card h-100 d-flex flex-column justify-content-between">
+                <div class="card-body">
+                    <h5 class="card-title">@med.Name</h5>
+                    <p class="card-text">@med.Description</p>
+                    <div class="mb-2"><span class="fw-bold">Price:</span> <span class="price-green" style="font-size:1.25rem;">@med.Price.ToString("C")</span></div>
+                    <div class="mb-2"><span class="fw-bold">Stock:</span> <span>@med.Stock</span></div>
+                </div>
+                <div class="card-footer bg-white border-0 pt-0 pb-3">
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <div style="display:flex;gap:4px;align-items:center;">
+                            <input type="number" value="1" min="1" class="form-control" style="width: 70px; display: inline;" disabled />
+                            <button class="btn pharma-btn" disabled style="pointer-events: none; opacity: 0.5;">Add to Cart</button>
+                        </div>
+                    }
+                    else
+                    {
+                        <form asp-area="Pharmacy" asp-controller="Pharmacy" asp-action="AddToCart" method="post" class="form-inline d-flex align-items-center" style="gap:8px;">
+                            <input type="hidden" name="medicineId" value="@med.Id" />
+                            <input type="number" name="quantity" value="1" min="1" max="@med.Stock" class="form-control" style="width: 80px;" />
+                            <button type="submit" class="btn pharma-btn">Add to Cart</button>
+                        </form>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+    </div>
 }
-<a asp-area="Pharmacy" asp-controller="Pharmacy" asp-action="Cart" class="btn btn-success float-right">View Cart</a>
+
+<a asp-area="Pharmacy" asp-controller="Pharmacy" asp-action="Cart" class="btn pharma-btn mb-4" style="font-size:1.4rem;">View Cart</a>

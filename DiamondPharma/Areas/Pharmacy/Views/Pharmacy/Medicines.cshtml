@@ -3,6 +3,34 @@
     ViewData["Title"] = "Available Medicines";
 }
 
+@if (TempData["CartSuccess"] != null)
+{
+    <div aria-live="polite" aria-atomic="true" class="position-fixed bottom-0 end-0 p-3" style="z-index: 1080; min-width: 300px;">
+        <div class="toast align-items-center text-bg-success border-0 show" role="alert" aria-live="assertive" aria-atomic="true" id="cartToast">
+            <div class="d-flex">
+                <div class="toast-body">
+                    @TempData["CartSuccess"]
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                var toastEl = document.getElementById('cartToast');
+                if (toastEl) {
+                    console.log('Toast found and will show!');
+                    var toast = new bootstrap.Toast(toastEl, { delay: 2500 });
+                    toast.show();
+                } else {
+                    console.log('Toast NOT found');
+                }
+            }, 100);
+        });
+    </script>
+}
+
 <h2>Available Medicines</h2>
 
 @if (!Model.Any())
@@ -30,15 +58,32 @@ else
                 <td>@med.Price.ToString("C")</td>
                 <td>@med.Stock</td>
                 <td>
-                    <form asp-area="Pharmacy" asp-controller="Pharmacy" asp-action="AddToCart" method="post" class="form-inline">
-                        <input type="hidden" name="medicineId" value="@med.Id" />
-                        <input type="number" name="quantity" value="1" min="1" max="@med.Stock" class="form-control" style="width: 70px; display: inline;" />
-                        <button type="submit" class="btn btn-primary">Add to Cart</button>
-                    </form>
+@if (User.IsInRole("Admin"))
+{
+    <div style="display:flex;gap:4px;align-items:center;">
+        <input type="number" value="1" min="1" class="form-control" style="width: 70px; display: inline;" disabled />
+        <button class="btn btn-primary" disabled style="pointer-events: none; opacity: 0.5;">Add to Cart</button>
+    </div>
+}
+else
+{
+    <form asp-area="Pharmacy" asp-controller="Pharmacy" asp-action="AddToCart" method="post" class="form-inline">
+        <input type="hidden" name="medicineId" value="@med.Id" />
+        <input type="number" name="quantity" value="1" min="1" max="@med.Stock" class="form-control" style="width: 70px; display: inline;" />
+        <button type="submit" class="btn btn-primary">Add to Cart</button>
+    </form>
+}
                 </td>
             </tr>
         }
         </tbody>
     </table>
 }
-<a asp-area="Pharmacy" asp-controller="Pharmacy" asp-action="Cart" class="btn btn-success float-right">View Cart</a>
+@if (User.IsInRole("Admin"))
+{
+    <a class="btn btn-success float-right disabled" style="pointer-events: none; opacity: 0.5;">View Cart</a>
+}
+else
+{
+    <a asp-area="Pharmacy" asp-controller="Pharmacy" asp-action="Cart" class="btn btn-success float-right">View Cart</a>
+}

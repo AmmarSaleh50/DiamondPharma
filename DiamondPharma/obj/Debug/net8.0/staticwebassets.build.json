@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "2wJFrgqlviiVfxNhLI/V2kQcS5deSES3qyj/WaVUZC4=",
+  "Hash": "zMvaJeyTd8HEGCPXEztUobtdIiTp3RBVdG5gPHjisls=",
   "Source": "DiamondPharma",
   "BasePath": "_content/DiamondPharma",
   "Mode": "Default",
@@ -1195,6 +1195,25 @@
       "OriginalItemSpec": "C:\\Users\\Ammar\\Desktop\\DiamondPharma\\DiamondPharma\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\DiamondPharma.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Users\\Ammar\\Desktop\\DiamondPharma\\DiamondPharma\\wwwroot\\css\\modern-pharma.css",
+      "SourceId": "DiamondPharma",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Ammar\\Desktop\\DiamondPharma\\DiamondPharma\\wwwroot\\",
+      "BasePath": "_content/DiamondPharma",
+      "RelativePath": "css/modern-pharma.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\modern-pharma.css"
+    },
+    {
       "Identity": "C:\\Users\\Ammar\\Desktop\\DiamondPharma\\DiamondPharma\\wwwroot\\css\\site.css",
       "SourceId": "DiamondPharma",
       "SourceType": "Discovered",
@@ -1231,6 +1250,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\Ammar\\Desktop\\DiamondPharma\\DiamondPharma\\wwwroot\\js\\cart-dynamic.js",
+      "SourceId": "DiamondPharma",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Ammar\\Desktop\\DiamondPharma\\DiamondPharma\\wwwroot\\",
+      "BasePath": "_content/DiamondPharma",
+      "RelativePath": "js/cart-dynamic.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\cart-dynamic.js"
     },
     {
       "Identity": "C:\\Users\\Ammar\\Desktop\\DiamondPharma\\DiamondPharma\\wwwroot\\js\\site.js",

@@ -5,12 +5,20 @@
       "PackagePath": "staticwebassets\\DiamondPharma.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\Ammar\\Desktop\\DiamondPharma\\DiamondPharma\\wwwroot\\css\\modern-pharma.css",
+      "PackagePath": "staticwebassets\\css\\modern-pharma.css"
+    },
+    {
       "Id": "C:\\Users\\Ammar\\Desktop\\DiamondPharma\\DiamondPharma\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "C:\\Users\\Ammar\\Desktop\\DiamondPharma\\DiamondPharma\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\Ammar\\Desktop\\DiamondPharma\\DiamondPharma\\wwwroot\\js\\cart-dynamic.js",
+      "PackagePath": "staticwebassets\\js\\cart-dynamic.js"
     },
     {
       "Id": "C:\\Users\\Ammar\\Desktop\\DiamondPharma\\DiamondPharma\\wwwroot\\js\\site.js",

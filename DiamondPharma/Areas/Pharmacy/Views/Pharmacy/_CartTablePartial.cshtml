@@ -1,0 +1,35 @@
+@model List<DiamondPharma.Models.CartViewModel>
+@{
+    decimal total = 0;
+}
+<table class="table table-bordered mb-0">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th style="width:110px;">Quantity</th>
+            <th>Unit Price</th>
+            <th>Subtotal</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    @for (int i = 0; i < Model.Count; i++) {
+        var subtotal = Model[i].Medicine.Price * Model[i].Quantity;
+        total += subtotal;
+        <tr>
+            <td>@Model[i].Medicine.Name</td>
+            <td>
+                <input type="number" name="Quantities[@i]" value="@Model[i].Quantity" min="1" max="@Model[i].Medicine.Stock" class="form-control cart-qty-input" style="width: 70px; display: inline;" autocomplete="off" />
+            </td>
+            <td>@Model[i].Medicine.Price:C</td>
+            <td class="item-subtotal">@subtotal:C</td>
+            <td>
+                <button type="button" class="btn btn-danger btn-sm cart-remove-btn" data-index="@i">Remove</button>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+<div class="d-flex justify-content-end bg-white py-2 px-2 border-bottom-0 border rounded-bottom">
+    <div class="fs-4 fw-bold">Total: <span id="cart-total">@total:C</span></div>
+</div>

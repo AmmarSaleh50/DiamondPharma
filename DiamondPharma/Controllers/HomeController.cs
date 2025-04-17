@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using DiamondPharma.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DiamondPharma.Controllers;
 
@@ -15,7 +16,19 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View();
+        if (!User.Identity.IsAuthenticated)
+        {
+            return RedirectToAction("Register", "Pharmacy", new { area = "Pharmacy" });
+        }
+        // Optionally, redirect authenticated users to their dashboard or pharmacy home
+        if (User.IsInRole("Admin"))
+        {
+            return RedirectToAction("Index", "CatalogMedicine", new { area = "Admin" });
+        }
+        else
+        {
+            return RedirectToAction("Index", "Pharmacy", new { area = "Pharmacy" });
+        }
     }
 
     public IActionResult Privacy()
