@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DiamondPharma")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2471547796eff1026f9e6b58bb3ec1f309f21ba7")]
 [assembly: System.Reflection.AssemblyProductAttribute("DiamondPharma")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DiamondPharma")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

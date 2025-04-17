@@ -10,11 +10,11 @@
         "projectUniqueName": "C:\\Users\\Ammar\\Desktop\\New folder\\DiamondPharma\\DiamondPharma.csproj",
         "projectName": "DiamondPharma",
         "projectPath": "C:\\Users\\Ammar\\Desktop\\New folder\\DiamondPharma\\DiamondPharma.csproj",
-        "packagesPath": "C:\\Users\\Ammar\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\hsm\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Ammar\\Desktop\\New folder\\DiamondPharma\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Ammar\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\hsm\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -90,6 +90,10 @@
             "Microsoft.Extensions.Localization": {
               "target": "Package",
               "version": "[9.0.4, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[8.0.15, )"
             },
             "Serilog.AspNetCore": {
               "target": "Package",
