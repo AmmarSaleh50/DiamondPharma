@@ -27,14 +27,28 @@ namespace DiamondPharma.Data
 
             // Seed admin user
             var userManager = serviceProvider.GetRequiredService<UserManager<IdentityUser>>();
+            var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
             string adminEmail = "admin@diamondpharma.sy";
             string adminPassword = "Admin@123";
+            string adminRole = "Admin";
 
-            if (await userManager.FindByEmailAsync(adminEmail) == null)
+            // Ensure Admin role exists
+            if (!await roleManager.RoleExistsAsync(adminRole))
             {
-                var adminUser = new IdentityUser { UserName = adminEmail, Email = adminEmail, EmailConfirmed = true };
+                await roleManager.CreateAsync(new IdentityRole(adminRole));
+            }
+
+            var adminUser = await userManager.FindByEmailAsync(adminEmail);
+            if (adminUser == null)
+            {
+                adminUser = new IdentityUser { UserName = adminEmail, Email = adminEmail, EmailConfirmed = true };
                 var result = await userManager.CreateAsync(adminUser, adminPassword);
-                // Optionally, assign to roles here if roles are set up
+            }
+
+            // Assign Admin role to admin user if not already assigned
+            if (!await userManager.IsInRoleAsync(adminUser, adminRole))
+            {
+                await userManager.AddToRoleAsync(adminUser, adminRole);
             }
         }
     }

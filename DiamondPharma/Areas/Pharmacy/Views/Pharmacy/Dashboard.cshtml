@@ -1,0 +1,34 @@
+@model DiamondPharma.Models.Pharmacy
+@{
+    ViewData["Title"] = "Pharmacy Dashboard";
+}
+
+<div class="container">
+    <h1>Welcome, @Model.Name!</h1>
+    
+    <div class="row mt-5">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5>Your Pharmacy Details</h5>
+                </div>
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-4">License Number:</dt>
+                        <dd class="col-sm-8">@Model.LicenseNumber</dd>
+                        
+                        <dt class="col-sm-4">Email:</dt>
+                        <dd class="col-sm-8">@Model.Email</dd>
+                        
+                        <dt class="col-sm-4">Phone:</dt>
+                        <dd class="col-sm-8">@Model.Phone</dd>
+                        
+                        <dt class="col-sm-4">Address:</dt>
+                        <dd class="col-sm-8">@Model.Address</dd>
+                    </dl>
+                    <a href="/Pharmacy/Pharmacy/Profile" class="btn btn-warning btn-block">Edit Profile</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

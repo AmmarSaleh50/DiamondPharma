@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ammar\\Desktop\\New folder\\DiamondPharma\\DiamondPharma.csproj": {}
+    "C:\\Users\\Ammar\\Desktop\\DiamondPharma\\DiamondPharma\\DiamondPharma.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ammar\\Desktop\\New folder\\DiamondPharma\\DiamondPharma.csproj": {
+    "C:\\Users\\Ammar\\Desktop\\DiamondPharma\\DiamondPharma\\DiamondPharma.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ammar\\Desktop\\New folder\\DiamondPharma\\DiamondPharma.csproj",
+        "projectUniqueName": "C:\\Users\\Ammar\\Desktop\\DiamondPharma\\DiamondPharma\\DiamondPharma.csproj",
         "projectName": "DiamondPharma",
-        "projectPath": "C:\\Users\\Ammar\\Desktop\\New folder\\DiamondPharma\\DiamondPharma.csproj",
-        "packagesPath": "C:\\Users\\hsm\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ammar\\Desktop\\New folder\\DiamondPharma\\obj\\",
+        "projectPath": "C:\\Users\\Ammar\\Desktop\\DiamondPharma\\DiamondPharma\\DiamondPharma.csproj",
+        "packagesPath": "C:\\Users\\Ammar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ammar\\Desktop\\DiamondPharma\\DiamondPharma\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\hsm\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Ammar\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -93,7 +93,7 @@
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[8.0.15, )"
+              "version": "[9.0.0, )"
             },
             "Serilog.AspNetCore": {
               "target": "Package",

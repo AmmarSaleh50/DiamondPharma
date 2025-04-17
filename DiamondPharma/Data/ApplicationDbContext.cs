@@ -13,6 +13,7 @@ public class ApplicationDbContext : IdentityDbContext
 
     public DbSet<Pharmacy> Pharmacies { get; set; }
     public DbSet<Medicine> Medicines { get; set; }
+    public DbSet<CatalogMedicine> CatalogMedicines { get; set; }
     public DbSet<Order> Orders { get; set; }
     public DbSet<OrderItem> OrderItems { get; set; }
 

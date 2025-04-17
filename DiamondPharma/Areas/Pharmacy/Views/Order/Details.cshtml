@@ -1,0 +1,34 @@
+@model DiamondPharma.Models.Order
+
+@{
+    ViewData["Title"] = $"Order #{Model.Id} Details";
+}
+
+<h1>Order #@Model.Id</h1>
+<p><strong>Date:</strong> @Model.OrderDate.ToLocalTime()</p>
+<p><strong>Status:</strong> @Model.Status</p>
+
+<h3>Items</h3>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Medicine</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+            <th>Subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.OrderItems)
+    {
+        <tr>
+            <td>@item.Medicine.Name</td>
+            <td>@item.Quantity</td>
+            <td>@item.Price:C</td>
+            <td>@(item.Price * item.Quantity):C</td>
+        </tr>
+    }
+    </tbody>
+</table>
+<p><strong>Total:</strong> @Model.OrderItems.Sum(i => i.Price * i.Quantity):C</p>
+<a asp-action="Index" class="btn btn-secondary">Back to Orders</a>

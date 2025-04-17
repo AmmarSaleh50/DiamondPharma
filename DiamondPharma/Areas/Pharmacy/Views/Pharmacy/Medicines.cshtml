@@ -1,0 +1,44 @@
+@model IEnumerable<DiamondPharma.Models.CatalogMedicine>
+@{
+    ViewData["Title"] = "Available Medicines";
+}
+
+<h2>Available Medicines</h2>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">No medicines are available for ordering at this time.</div>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var med in Model)
+        {
+            <tr>
+                <td>@med.Name</td>
+                <td>@med.Description</td>
+                <td>@med.Price.ToString("C")</td>
+                <td>@med.Stock</td>
+                <td>
+                    <form asp-area="Pharmacy" asp-controller="Pharmacy" asp-action="AddToCart" method="post" class="form-inline">
+                        <input type="hidden" name="medicineId" value="@med.Id" />
+                        <input type="number" name="quantity" value="1" min="1" max="@med.Stock" class="form-control" style="width: 70px; display: inline;" />
+                        <button type="submit" class="btn btn-primary">Add to Cart</button>
+                    </form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+<a asp-area="Pharmacy" asp-controller="Pharmacy" asp-action="Cart" class="btn btn-success float-right">View Cart</a>

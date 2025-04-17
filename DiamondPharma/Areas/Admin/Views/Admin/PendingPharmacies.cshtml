@@ -1,0 +1,41 @@
+@model IEnumerable<DiamondPharma.Models.Pharmacy>
+@{
+    ViewData["Title"] = "Pending Pharmacies";
+}
+<h2>Pending Pharmacies</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>License Number</th>
+            <th>Address</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var pharmacy in Model)
+        {
+            <tr>
+                <td>@pharmacy.Name</td>
+                <td>@pharmacy.Email</td>
+                <td>@pharmacy.Phone</td>
+                <td>@pharmacy.LicenseNumber</td>
+                <td>@pharmacy.Address</td>
+                <td>
+                    <form action="/Admin/Admin/ApprovePharmacy" method="post" style="display:inline">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="id" value="@pharmacy.Id" />
+                        <button type="submit" class="btn btn-success btn-sm">Approve</button>
+                    </form>
+                    <form action="/Admin/Admin/RejectPharmacy" method="post" style="display:inline">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="id" value="@pharmacy.Id" />
+                        <button type="submit" class="btn btn-danger btn-sm">Reject</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

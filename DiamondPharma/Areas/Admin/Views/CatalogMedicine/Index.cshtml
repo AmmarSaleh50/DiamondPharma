@@ -1,0 +1,33 @@
+@model IEnumerable<DiamondPharma.Models.CatalogMedicine>
+@{
+    ViewData["Title"] = "Catalog Medicines";
+}
+<h1>Catalog Medicines</h1>
+<p><a asp-action="Create" class="btn btn-success">Add New Medicine</a></p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Active</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Description</td>
+            <td>@item.Price:C</td>
+            <td>@item.Stock</td>
+            <td>@(item.IsActive ? "Yes" : "No")</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Edit</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

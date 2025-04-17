@@ -22,6 +22,9 @@ namespace DiamondPharma.Models
         [Required]
         public int Stock { get; set; }
 
+        public int PharmacyId { get; set; }
+        public Pharmacy Pharmacy { get; set; }
+
         public ICollection<OrderItem> OrderItems { get; set; }
     }
 }
