@@ -1,0 +1,9 @@
+Microsoft.EntityFrameworkCore.SqlServer
+Microsoft.AspNetCore.Identity.EntityFrameworkCore
+Microsoft.Extensions.Localization
+Microsoft.EntityFrameworkCore.Tools
+Microsoft.VisualStudio.Web.CodeGeneration.Design
+Serilog.AspNetCore
+MailKit
+CsvHelper
+DinkToPdf
